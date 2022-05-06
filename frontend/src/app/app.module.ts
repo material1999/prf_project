@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpReqInterceptor } from './utils/http.interceptor';
 import { ProductsComponent } from './products/products.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ErrorComponent,
-    ProductsComponent
+    ProductsComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

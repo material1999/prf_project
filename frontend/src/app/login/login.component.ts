@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   registration() {
-    console.log("Regisztráció")
+    this.router.navigate(['/registration']);
   }
 
   ngOnInit(): void {
