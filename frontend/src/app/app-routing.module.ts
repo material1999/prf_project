@@ -5,6 +5,7 @@ import { ErrorComponent } from './error/error.component';
 import { AuthGuard } from './guards/auth.guard';
 import { InfoComponent } from './info/info.component';
 import { LoginComponent } from './login/login.component';
+import { OrdersComponent } from './orders/orders.component';
 import { ProductsComponent } from './products/products.component';
 import { RegistrationComponent } from './registration/registration.component';
 
@@ -15,6 +16,8 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
   { path: 'info/:id', component: InfoComponent, canActivate: [AuthGuard] },
   { path: 'buy/:id', component: BuyComponent, canActivate: [AuthGuard] },
+  { path: 'orders/:felhasznalo', component: OrdersComponent, canActivate: [AuthGuard] },
+  { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: '**', component: ErrorComponent }
 ];
 

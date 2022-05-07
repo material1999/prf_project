@@ -11,6 +11,7 @@ export class ProductsComponent implements OnInit {
 
   accessLevel: boolean;
   items: any;
+  user: String;
 
   constructor(private listService: ListService, private router: Router) {
     if (localStorage.getItem('accessLevel') == 'admin') {
@@ -18,7 +19,7 @@ export class ProductsComponent implements OnInit {
     } else {
       this.accessLevel = false;
     }
-    
+    this.user = localStorage.getItem('user') || '';
   }
 
   ngOnInit(): void {
@@ -39,6 +40,15 @@ export class ProductsComponent implements OnInit {
   info(id: String) {
     console.log('info:', id);
     this.router.navigate(['/info/' + id]);
+  }
+
+  navToOrders() {
+    console.log(this.user)
+    if (!this.accessLevel) {
+      this.router.navigate(['/orders/' + this.user]);
+    } else {
+      this.router.navigate(['/orders']);
+    }
   }
 
 }

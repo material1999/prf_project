@@ -3,8 +3,8 @@
         [routerLink]="['/products']">
         Admin
     </mat-sidenav-content>
-    <mat-sidenav-content *ngIf="!accessLevel" style="margin-bottom: 10px; width: fit-content;" class="change_bg_2"
-        [routerLink]="['/products']">
+    <mat-sidenav-content style="margin-bottom: 10px; width: fit-content;" class="change_bg_2"
+      (click)="navToOrders()">
         Rendelések
     </mat-sidenav-content>
     <mat-sidenav-content style="margin-bottom: 10px; width: fit-content;" class="change_bg_2"
@@ -52,7 +52,7 @@
       </div>
     
       <!-- Resources -->
-      <h3 style="margin-top: 20px;">Biztosan meg szeretné vásárolni a következő játékot:</h3>
+      <h3 style="margin-top: 20px;">Biztosan meg szeretné vásárolni a következő játékot?</h3>
       <img height="128px" style="margin-top: 20px;" src={{item.kep}} />
       <div style="margin-top: 20px;">{{item.cim}}</div>
       <div style="margin-top: 20px;">Ár: {{item.ar}}€</div>

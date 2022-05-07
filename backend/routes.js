@@ -138,16 +138,18 @@ router.route('/users/:id?').get((req, res) => {
 })
 
 router.route('/rendelesek/:felhasznalo?').get((req, res) => {
-    if (!req.params.felhasznalo) {
+    if (req.params.felhasznalo == 'undefined') {
         rendelesekModel.find((err, rendelesek) => {
             if (err) return res.status(500).send('DB hiba ' + err)
             if (!rendelesek) return res.status(400).send('Nincsenek rendelések!')
+            console.log('admin')
             return res.status(200).send(rendelesek)
         })
     } else {
         rendelesekModel.find({ felhasznalo: req.params.felhasznalo }, (err, rendelesek) => {
             if (err) return res.status(500).send('DB hiba ' + err)
             if (!rendelesek) return res.status(400).send('Nincsenek rendelések!')
+            console.log('basic')
             return res.status(200).send(rendelesek)
         })
     }

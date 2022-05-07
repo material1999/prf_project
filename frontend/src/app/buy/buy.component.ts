@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ListService } from '../utils/list.service';
 import { OrderService } from '../utils/order.service';
 
@@ -14,8 +14,9 @@ export class BuyComponent implements OnInit {
   accessLevel: boolean;
   item: any;
   msg: String;
+  user: String;
 
-  constructor(private route: ActivatedRoute, private listService: ListService, private orderService: OrderService) {
+  constructor(private route: ActivatedRoute, private listService: ListService, private orderService: OrderService, private router: Router) {
     this.id = this.route.snapshot['_routerState'].url.split('/')[2];
     if (localStorage.getItem('accessLevel') == 'admin') {
       this.accessLevel = true;
@@ -23,7 +24,7 @@ export class BuyComponent implements OnInit {
       this.accessLevel = false;
     }
     this.msg = '';
-    
+    this.user = localStorage.getItem('user') || '';
   }
 
   ngOnInit(): void {
@@ -53,6 +54,15 @@ export class BuyComponent implements OnInit {
       }
     })
     this.msg = "Sikeres vásárlás!"
+  }
+
+  navToOrders() {
+    console.log(this.user)
+    if (!this.accessLevel) {
+      this.router.navigate(['/orders/' + this.user]);
+    } else {
+      this.router.navigate(['/orders']);
+    }
   }
 
 }

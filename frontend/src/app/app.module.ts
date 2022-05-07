@@ -15,6 +15,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import { InfoComponent } from './info/info.component';
 import { BuyComponent } from './buy/buy.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { BuyComponent } from './buy/buy.component';
     ProductsComponent,
     RegistrationComponent,
     InfoComponent,
-    BuyComponent
+    BuyComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

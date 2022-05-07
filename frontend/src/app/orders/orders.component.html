@@ -3,7 +3,7 @@
         [routerLink]="['/products']">
         Admin
     </mat-sidenav-content>
-    <mat-sidenav-content  style="margin-bottom: 10px; width: fit-content;" class="change_bg_2"
+    <mat-sidenav-content style="margin-bottom: 10px; width: fit-content;" class="change_bg_2"
         (click)="navToOrders()">
         Rendelések
     </mat-sidenav-content>
@@ -39,7 +39,7 @@
         </svg>
 
 
-        <span>Játékok</span>
+        <span>Rendelések</span>
 
 
         <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632"
@@ -55,11 +55,8 @@
     <!-- Resources -->
 
     <mat-nav-list>
-        <a class="change_bg_2" style="height: 100px !important;" mat-list-item *ngFor="let item of items">
-            <img height="64px" style="margin-right: 20px;" alt="Angular Logo" src={{item.kep}} />
-            {{ item.cim }} : {{item.ar}}€
-            <button style="margin-left: 20px;" (click)="info(item.id)">Információ</button>
-            <button style="margin-left: 10px;" (click)="buy(item.id)">Vásárlás</button>
+        <a class="change_bg_2" style="height: 50px !important;" mat-list-item *ngFor="let item of items">
+            {{item.felhasznalo}} ----- {{item.idopont}} ----- {{ item.jatek }}
         </a>
     </mat-nav-list>
 
