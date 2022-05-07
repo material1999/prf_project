@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ListService } from '../utils/list.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class ProductsComponent implements OnInit {
   accessLevel: boolean;
   items: any;
 
-  constructor(private listService: ListService) {
+  constructor(private listService: ListService, private router: Router) {
     if (localStorage.getItem('accessLevel') == 'admin') {
       this.accessLevel = true;
     } else {
@@ -32,10 +33,12 @@ export class ProductsComponent implements OnInit {
 
   buy(id: String) {
     console.log('buy:', id);
+
   }
 
   info(id: String) {
     console.log('info:', id);
+    this.router.navigate(['/info/' + id]);
   }
 
 }

@@ -14,4 +14,10 @@ export class ListService {
     {withCredentials: true, 
     responseType: 'text', observe: 'response' as 'response'});
   }
+
+  getItem(id: String) {
+    return this.http.get(environment.serverUrl + '/jatekok/' + id,
+    {withCredentials: true, 
+    responseType: 'text', observe: 'response' as 'response'});
+  }
 }
