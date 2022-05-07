@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListService } from '../utils/list.service';
 
 @Component({
   selector: 'app-products',
@@ -8,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class ProductsComponent implements OnInit {
 
   accessLevel: boolean;
+  items: any;
 
-  constructor() {
+  constructor(private listService: ListService) {
     if (localStorage.getItem('accessLevel') == 'admin') {
       this.accessLevel = true;
     } else {
@@ -19,6 +21,13 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.listService.list().subscribe(msg => {
+      console.log(msg);
+      this.items = JSON.parse(msg.body || '')
+      console.log(this.items);
+    }, error => {
+      console.log(error);
+    })
   }
 
 }

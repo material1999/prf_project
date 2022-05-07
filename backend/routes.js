@@ -1,54 +1,62 @@
 const router = require('express').Router()
 const mongoose = require('mongoose')
+const uuid = require('uuid');
 
-const aruModel = mongoose.model('aru')
 const userModel = mongoose.model('user')
+const jatekModel = mongoose.model('jatek')
 
 const passport = require('passport')
 
-router.route('/arukereso/:id?').get((req, res) => {
+router.route('/jatekok/:id?').get((req, res) => {
     if (!req.params.id) {
-        aruModel.find((err, aruk) => {
+        jatekModel.find((err, jatekok) => {
             if (err) return res.status(500).send('DB hiba ' + err)
-            return res.status(200).send(aruk)
+            return res.status(200).send(jatekok)
         })
     } else {
-        aruModel.findOne({ nev: req.params.id }, (err, aru) => {
+        jatekModel.findOne({ id: req.params.id }, (err, jatek) => {
             if (err) return res.status(500).send('DB hiba ' + err)
-            if (!aru) return res.status(400).send('Nincs ilyen aru!')
-            return res.status(200).send(aru)
+            if (!jatek) return res.status(400).send('Nincs ilyen játék!')
+            return res.status(200).send(jatek)
         })
     }
 }).post((req, res) => {
-    if (!req.params.id || !req.body.ar || !req.body.darab) {
+    if (!req.body.cim || !req.body.ar || !req.body.leiras || !req.body.ertekeles) {
+        console.log(req.body.cim)
+        console.log(req.body.ar)
+        console.log(req.body.leiras)
+        console.log(req.body.ertekeles)
         return res.status(400).send("Hiányos input!")
     } else {
         // a teljesség kedvéért itt megírom ezt a kódot
         // de felesleges mert a sémában már definiáltuk, hogy két doksi
         // nem kaphatja ugyanazt a nevet
-        aruModel.findOne({ nev: req.params.id }, (err, aru) => {
+        var newID = uuid.v1();
+        jatekModel.findOne({ id: newID }, (err, jatek) => {
             if (err) return res.status(500).send('DB hiba ' + err)
-            if (aru) return res.status(400).send('mar van ilyen')
-            const nAru = new aruModel({
-                nev: req.params.id, darab: req.body.darab,
-                ar: req.body.ar
+            if (jatek) return res.status(400).send('mar van ilyen')
+            const nJatek = new jatekModel({
+                id: newID, cim: req.body.cim,
+                ar: req.body.ar, leiras: req.body.leiras, ertekeles: req.body.ertekeles
             })
-            nAru.save((error) => {
+            nJatek.save((error) => {
                 if (error) return res.status(500).send('DB hiba a betöltés során ' + error)
                 return res.status(200).send(req.body)
             })
         })
     }
 }).put((req, res) => {
-    if (!req.params.id || (!req.body.ar && !req.body.darab)) {
+    if (!req.params.id || (!req.body.cim && !req.body.ar && !req.body.leiras && !req.body.ertekeles)) {
         return res.status(400).send("Hiányos input!")
     } else {
-        aruModel.findOne({ nev: req.params.id }, (err, aru) => {
+        jatekModel.findOne({ id: req.params.id }, (err, jatek) => {
             if (err) return res.status(500).send('DB hiba ' + err)
-            if (!aru) return res.status(400).send('Még nincs ilyen áru')
-            if (req.body.ar) aru.ar = req.body.ar
-            if (req.body.darab) aru.darab = req.body.darab
-            aru.save((error) => {
+            if (!aru) return res.status(400).send('Még nincs ilyen játék')
+            if (req.body.cim) jatek.cim = req.body.cim
+            if (req.body.ar) jatek.ar = req.body.ar
+            if (req.body.leiras) jatek.leiras = req.body.leiras
+            if (req.body.ertekeles) jatek.ertekeles = req.body.ertekeles
+            jatek.save((error) => {
                 if (error) return res.status(500).send('DB hiba a betöltés során ' + error)
                 return res.status(200).send(aru)
             })
@@ -56,7 +64,7 @@ router.route('/arukereso/:id?').get((req, res) => {
     }
 }).delete((req, res) => {
     if (!req.params.id) {
-        aruModel.deleteMany((err) => {
+        jatekModel.deleteMany((err) => {
             if (err) return res.status(500).send('DB hiba ' + err)
             return res.status(200).send('Törölve minden')
         })
@@ -68,9 +76,9 @@ router.route('/arukereso/:id?').get((req, res) => {
                 aru.delete((error) => {...})
             })
          */
-        aruModel.deleteOne({ nev: req.params.id }, (err) => {
+        jatekModel.deleteOne({ id: req.params.id }, (err) => {
             if (err) return res.status(500).send('DB hiba ' + err)
-            return res.status(200).send('Aru torolve (feltéve ha volt)')
+            return res.status(200).send('Jatek torolve (feltéve ha volt)')
         })
     }
 })

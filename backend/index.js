@@ -17,8 +17,8 @@ mongoose.connect(dbUrl)
 mongoose.connection.on('connected', () => { console.log('db connected') })
 mongoose.connection.on('error', (err) => { console.log('db error', err) })
 
-mongoose.model('aru', require('./models/arukereso.schema'))
 mongoose.model('user', require('./models/user.schema'))
+mongoose.model('jatek', require('./models/jatekok.schema'))
 
 app.use(express.json())
 app.use(express.urlencoded({
@@ -70,7 +70,7 @@ passport.deserializeUser(function (user, done) {
     if (!user) return done("nincs user akit kiléptethetnénk", null);
     return done(null, user);
 });
-//ezzel a secrettel lesznek aláírva, hitelesítve a sütik, érdemes minél komplexebbet választani - vagyis nem ilyet, mint most én
+//ezzel a secrettel lesznek aláírva, hitelesítve a sütik, érdemes minél komplexebbet választani (vagyis nem ilyet)
 app.use(session({ secret: 'prf2022', resave: false }));
 app.use(passport.initialize())
 app.use(passport.session())

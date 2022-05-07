@@ -2,6 +2,9 @@
     <mat-sidenav-content *ngIf="accessLevel" style="margin-bottom: 10px; width: fit-content;" class="change_bg_2" [routerLink]="['/products']">
         Admin
     </mat-sidenav-content>
+    <mat-sidenav-content *ngIf="!accessLevel" style="margin-bottom: 10px; width: fit-content;" class="change_bg_2" [routerLink]="['/products']">
+        Rendelések
+    </mat-sidenav-content>
     <mat-sidenav-content style="margin-bottom: 10px; width: fit-content;" class="change_bg_2" [routerLink]="['/products']">
         Játékok
     </mat-sidenav-content>
@@ -48,7 +51,9 @@
 
     <!-- Resources -->
 
-    <p>products works!</p>
+    <mat-nav-list>
+        <a class="change_bg_2" mat-list-item *ngFor="let item of items"> {{ item.cim }} : {{item.ar}}$ </a>
+     </mat-nav-list>
 
     <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677"
         viewBox="0 0 2611.084 485.677">

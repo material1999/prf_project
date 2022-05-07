@@ -12,6 +12,7 @@ import { ProductsComponent } from './products/products.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -29,7 +30,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     MatSidenavModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatListModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpReqInterceptor, multi: true }],
   bootstrap: [AppComponent]
