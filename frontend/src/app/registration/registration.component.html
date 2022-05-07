@@ -35,24 +35,24 @@
     </div>
 
     <!-- Resources -->
-    <div>
-        <label>Felhasználónév</label>
+    <div style="margin: 10px;">
+        <label style="margin: 10px;">Felhasználónév</label>
         <input type="text" id="username" [(ngModel)]="username">
     </div>
-    <div>
-        <label>Jelszó</label>
+    <div style="margin: 10px;">
+        <label style="margin: 10px;">Jelszó</label>
         <input type="password" id="password" [(ngModel)]="password">
     </div>
-    <div>
-        <label>Email</label>
+    <div style="margin: 10px;">
+        <label style="margin: 10px;">Email</label>
         <input type="text" id="email" ngModel email [(ngModel)]="email">
     </div>
 
-    <h3 style="color: red" *ngIf="msg !== ''">{{ msg }}</h3>
+    <h3 style="color: red; margin: 10px;" *ngIf="msg !== ''">{{ msg }}</h3>
 
-    <button (click)="registration()">Regisztráció</button>
+    <button style="margin: 10px;" (click)="registration()">Regisztráció</button>
 
-    <button (click)="backToLogin()">Vissza a bejelentkezéshez</button>
+    <button style="margin: 10px;" (click)="backToLogin()">Vissza a bejelentkezéshez</button>
 
     <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677"
         viewBox="0 0 2611.084 485.677">

@@ -34,20 +34,20 @@
   </div>
 
   <!-- Resources -->
-  <div>
-    <label>Felhasználónév</label>
+  <div style="margin: 10px;">
+    <label style="margin: 10px;">Felhasználónév</label>
     <input type="text" id="username" [(ngModel)]="username">
   </div>
-  <div>
-    <label>Jelszó</label>
+  <div style="margin: 10px;">
+    <label style="margin: 10px;">Jelszó</label>
     <input type="password" id="password" [(ngModel)]="password">
   </div>
 
-  <h3 style="color: red" *ngIf="msg !== ''">{{ msg }}</h3>
+  <h3 style="color: red; margin: 10px;" *ngIf="msg !== ''">{{ msg }}</h3>
 
-  <button (click)="login()">Bejelentkezés</button>
+  <button style="margin: 10px;" (click)="login()">Bejelentkezés</button>
 
-  <button (click)="registration()">Regisztráció</button>
+  <button style="margin: 10px;" (click)="registration()">Regisztráció</button>
 
   <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
     <title>Gray Clouds Background</title>
