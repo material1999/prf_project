@@ -1,5 +1,7 @@
 <mat-sidenav-container style="position: relative; top: 75px;">
-    <mat-sidenav >Start</mat-sidenav>
+    <mat-sidenav-content *ngIf="accessLevel" style="margin-bottom: 10px; width: fit-content;" class="change_bg_2" [routerLink]="['/products']">
+        Admin
+    </mat-sidenav-content>
     <mat-sidenav-content style="margin-bottom: 10px; width: fit-content;" class="change_bg_2" [routerLink]="['/products']">
         Játékok
     </mat-sidenav-content>

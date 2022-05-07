@@ -150,7 +150,7 @@ router.route('/login').post((req, res, next) => {
             // req.user néven
             req.logIn(user, function (error) {
                 if (error) return res.status(500).send(error);
-                return res.status(200).send('Bejelentkezes sikeres');
+                return res.status(200).send(user.accessLevel);
             })
         })(req, res, next);
     } else { return res.status(400).send('Hibas keres, username es password kell'); }

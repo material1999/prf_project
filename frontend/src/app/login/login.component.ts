@@ -23,7 +23,9 @@ export class LoginComponent implements OnInit {
     if (this.username != '' && this.password != '') {
       this.loginService.login(this.username, this.password).subscribe(msg => {
         console.log(msg);
+        console.log(msg.body);
         localStorage.setItem('user', this.username);
+        localStorage.setItem('accessLevel', msg.body || '');
         this.router.navigate(['/products']);
       }, error => {
         console.log(error);
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (localStorage.getItem('user')) {
       localStorage.removeItem('user');
+      localStorage.removeItem('accessLevel');
       this.loginService.logout().subscribe(msg => {
         console.log(msg);
       }, error => {

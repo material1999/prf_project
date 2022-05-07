@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  accessLevel: boolean;
+
+  constructor() {
+    if (localStorage.getItem('accessLevel') == 'admin') {
+      this.accessLevel = true;
+    } else {
+      this.accessLevel = false;
+    }
+    
+  }
 
   ngOnInit(): void {
   }
