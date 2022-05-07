@@ -5,7 +5,8 @@ const jatekSchema = new mongoose.Schema({
     cim: {type: String, required: true},
     ar: {type: Number, required: true},
     leiras: {type: String, required: true},
-    ertekeles: {type: Number, required: true}
+    ertekeles: {type: Number, required: true},
+    kep: {type: String, required: true}
 },{collection: 'jatekok'})
 
 module.exports = jatekSchema

@@ -21,11 +21,7 @@ router.route('/jatekok/:id?').get((req, res) => {
         })
     }
 }).post((req, res) => {
-    if (!req.body.cim || !req.body.ar || !req.body.leiras || !req.body.ertekeles) {
-        console.log(req.body.cim)
-        console.log(req.body.ar)
-        console.log(req.body.leiras)
-        console.log(req.body.ertekeles)
+    if (!req.body.cim || !req.body.ar || !req.body.leiras || !req.body.ertekeles || !req.body.kep) {
         return res.status(400).send("Hiányos input!")
     } else {
         // a teljesség kedvéért itt megírom ezt a kódot
@@ -36,7 +32,7 @@ router.route('/jatekok/:id?').get((req, res) => {
             if (err) return res.status(500).send('DB hiba ' + err)
             if (jatek) return res.status(400).send('mar van ilyen')
             const nJatek = new jatekModel({
-                id: newID, cim: req.body.cim,
+                id: newID, cim: req.body.cim, kep: req.body.kep,
                 ar: req.body.ar, leiras: req.body.leiras, ertekeles: req.body.ertekeles
             })
             nJatek.save((error) => {
@@ -56,9 +52,10 @@ router.route('/jatekok/:id?').get((req, res) => {
             if (req.body.ar) jatek.ar = req.body.ar
             if (req.body.leiras) jatek.leiras = req.body.leiras
             if (req.body.ertekeles) jatek.ertekeles = req.body.ertekeles
+            if (req.body.kep) jatek.kep = req.body.kep
             jatek.save((error) => {
                 if (error) return res.status(500).send('DB hiba a betöltés során ' + error)
-                return res.status(200).send(aru)
+                return res.status(200).send(jatek)
             })
         })
     }

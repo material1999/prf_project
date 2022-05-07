@@ -1,11 +1,14 @@
 <mat-sidenav-container style="position: relative; top: 75px;">
-    <mat-sidenav-content *ngIf="accessLevel" style="margin-bottom: 10px; width: fit-content;" class="change_bg_2" [routerLink]="['/products']">
+    <mat-sidenav-content *ngIf="accessLevel" style="margin-bottom: 10px; width: fit-content;" class="change_bg_2"
+        [routerLink]="['/products']">
         Admin
     </mat-sidenav-content>
-    <mat-sidenav-content *ngIf="!accessLevel" style="margin-bottom: 10px; width: fit-content;" class="change_bg_2" [routerLink]="['/products']">
+    <mat-sidenav-content *ngIf="!accessLevel" style="margin-bottom: 10px; width: fit-content;" class="change_bg_2"
+        [routerLink]="['/products']">
         Rendelések
     </mat-sidenav-content>
-    <mat-sidenav-content style="margin-bottom: 10px; width: fit-content;" class="change_bg_2" [routerLink]="['/products']">
+    <mat-sidenav-content style="margin-bottom: 10px; width: fit-content;" class="change_bg_2"
+        [routerLink]="['/products']">
         Játékok
     </mat-sidenav-content>
     <mat-sidenav-content style="margin-bottom: 10px; width: fit-content;" class="change_bg_2" [routerLink]="['/login']">
@@ -52,8 +55,13 @@
     <!-- Resources -->
 
     <mat-nav-list>
-        <a class="change_bg_2" mat-list-item *ngFor="let item of items"> {{ item.cim }} : {{item.ar}}$ </a>
-     </mat-nav-list>
+        <a class="change_bg_2" style="height: 100px !important;" mat-list-item *ngFor="let item of items">
+            <img height="64px" style="margin-right: 20px;" alt="Angular Logo" src={{item.kep}} />
+            {{ item.cim }} : {{item.ar}}€
+            <button style="margin-left: 20px;" (click)="info(item.id)">Információ</button>
+            <button style="margin-left: 10px;" (click)="buy(item.id)">Vásárlás</button>
+        </a>
+    </mat-nav-list>
 
     <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677"
         viewBox="0 0 2611.084 485.677">

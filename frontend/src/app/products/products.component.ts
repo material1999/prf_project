@@ -30,4 +30,12 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  buy(id: String) {
+    console.log('buy:', id);
+  }
+
+  info(id: String) {
+    console.log('info:', id);
+  }
+
 }
