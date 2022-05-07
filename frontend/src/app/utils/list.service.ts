@@ -32,4 +32,10 @@ export class ListService {
     {withCredentials: true, 
     responseType: 'text', observe: 'response' as 'response'});
   }
+
+  getUsers() {
+    return this.http.get(environment.serverUrl + '/users/',
+    {withCredentials: true, 
+    responseType: 'text', observe: 'response' as 'response'});
+  }
 }

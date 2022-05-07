@@ -44,11 +44,21 @@ router.route('/jatekok/:id?').get((req, res) => {
     }
 }).put((req, res) => {
     if (!req.params.id || (!req.body.cim && !req.body.ar && !req.body.leiras && !req.body.ertekeles)) {
+        console.log(req.params.id)
+        console.log(req.body.cim)
+        console.log(req.body.ar)
+        console.log(req.body.leiras)
+        console.log(req.body.ertekeles)
         return res.status(400).send("Hiányos input!")
     } else {
+        console.log(req.params.id)
+        console.log(req.body.cim)
+        console.log(req.body.ar)
+        console.log(req.body.leiras)
+        console.log(req.body.ertekeles)
         jatekModel.findOne({ id: req.params.id }, (err, jatek) => {
             if (err) return res.status(500).send('DB hiba ' + err)
-            if (!aru) return res.status(400).send('Még nincs ilyen játék')
+            if (!jatek) return res.status(400).send('Még nincs ilyen játék')
             if (req.body.cim) jatek.cim = req.body.cim
             if (req.body.ar) jatek.ar = req.body.ar
             if (req.body.leiras) jatek.leiras = req.body.leiras

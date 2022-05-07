@@ -1,10 +1,9 @@
 <mat-sidenav-container style="position: relative; top: 75px;">
     <mat-sidenav-content *ngIf="accessLevel" style="margin-bottom: 10px; width: fit-content;" class="change_bg_2"
-        [routerLink]="['/products']">
+        [routerLink]="['/admin']">
         Admin
     </mat-sidenav-content>
-    <mat-sidenav-content  style="margin-bottom: 10px; width: fit-content;" class="change_bg_2"
-        (click)="navToOrders()">
+    <mat-sidenav-content style="margin-bottom: 10px; width: fit-content;" class="change_bg_2" (click)="navToOrders()">
         Rendelések
     </mat-sidenav-content>
     <mat-sidenav-content style="margin-bottom: 10px; width: fit-content;" class="change_bg_2"

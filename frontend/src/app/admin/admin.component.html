@@ -38,7 +38,7 @@
         </svg>
 
 
-        <span>Rendelések</span>
+        <span>Admin</span>
 
 
         <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632"
@@ -55,7 +55,7 @@
 
     <mat-nav-list>
         <a class="change_bg_2" style="height: 50px !important;" mat-list-item *ngFor="let item of items">
-            {{item.felhasznalo}} ----- {{item.idopont}} ----- {{ item.jatek }}
+            {{item.username}} ----- {{item.password}} ----- {{ item.email }} ----- {{ item.accessLevel }}
         </a>
     </mat-nav-list>
 

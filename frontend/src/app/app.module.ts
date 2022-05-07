@@ -16,6 +16,7 @@ import {MatListModule} from '@angular/material/list';
 import { InfoComponent } from './info/info.component';
 import { BuyComponent } from './buy/buy.component';
 import { OrdersComponent } from './orders/orders.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { OrdersComponent } from './orders/orders.component';
     RegistrationComponent,
     InfoComponent,
     BuyComponent,
-    OrdersComponent
+    OrdersComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
