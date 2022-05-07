@@ -37,12 +37,18 @@ Végül a regisztrációt is hassonló módon készítettem el. Itt figyeltem a 
 <br>
 
 #### *2022.05.06.*
+Ezen a napon következhetett a további funkciók elkészítése. Előtte azonban kisebb hibajavításokat végeztem, valamint egy egyszerű oldalsó navigációs menüsort is elkészítettem a különböző komponensek közötti navigáláshoz. Ezen kívül egy accessLevel változót is felvettem a localStorage-ba, ezzel figyelve azt, hogy a bejelentkezett felhasználó admin, vagy pedig sima felhasználó.
 
+Első körben az adatbázisban eltárolt elemeket sikerült kilistáznom a bejelentkezés után betöltődő komponensben. Ebbe rekordonként beletartoznak különböző egyszerű szöveges és számszerű adatok, valamint egy base64-ként eltárolt kép is.
+
+Két újabb komponenst hoztam létre, melyekkel a lista elemeiről további információkat érhetünk el, valamint vásárolhatunk is. Itt a megfelelő elérési útvonalak, navigálások megvalósítása bizonyult a legnehezebb feladatnak, a kommunikáció során küldött JSON információk szépen működtek.
+
+A korábbi rendelések kilistázása esetén admin felhasználó minden, az oldalon leadott rendelést lát, a sima felhasználók csak a sajátjaikat. Ezen kívül egy admin fület is készítettem, ezt természetesen az egyszerű felhasználók nem látják. Itt pedig az összes regisztrált felhasználóról érhetjük el a regisztrációkor megadott adatokat (a jelszavakat természetesen hash-elve).
 
 <br>
 
 #### *2022.05.07.*
-
+A munkám utolsó napjára maradt az alkalmazás Heroku-ra való deploy-olása.
 
 <br>
 
