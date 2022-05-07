@@ -1,3 +1,13 @@
+<mat-sidenav-container style="position: relative; top: 75px;">
+    <mat-sidenav >Start</mat-sidenav>
+    <mat-sidenav-content style="margin-bottom: 10px; width: fit-content;" class="change_bg_2" [routerLink]="['/products']">
+        Játékok
+    </mat-sidenav-content>
+    <mat-sidenav-content style="margin-bottom: 10px; width: fit-content;" class="change_bg_2" [routerLink]="['/login']">
+        Kijelentkezés
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
 <div class="content" role="main">
 
     <!-- Highlight Card -->
@@ -21,7 +31,7 @@
         </svg>
 
 
-        <span>Termékek</span>
+        <span>Játékok</span>
 
 
         <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632"
@@ -35,7 +45,6 @@
     </div>
 
     <!-- Resources -->
-    <button [routerLink]="['/login']">Kijelentkezés</button>
 
     <p>products works!</p>
 
