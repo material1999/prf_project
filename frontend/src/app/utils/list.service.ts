@@ -20,4 +20,16 @@ export class ListService {
     {withCredentials: true, 
     responseType: 'text', observe: 'response' as 'response'});
   }
+
+  getRendeles(felhasznalo: String) {
+    return this.http.get(environment.serverUrl + '/rendelesek/' + felhasznalo,
+    {withCredentials: true, 
+    responseType: 'text', observe: 'response' as 'response'});
+  }
+
+  getRendelesek() {
+    return this.http.get(environment.serverUrl + '/rendelesek/',
+    {withCredentials: true, 
+    responseType: 'text', observe: 'response' as 'response'});
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ListService } from '../utils/list.service';
+import { OrderService } from '../utils/order.service';
 
 @Component({
   selector: 'app-buy',
@@ -14,7 +15,7 @@ export class BuyComponent implements OnInit {
   item: any;
   msg: String;
 
-  constructor(private route: ActivatedRoute, private listService: ListService) {
+  constructor(private route: ActivatedRoute, private listService: ListService, private orderService: OrderService) {
     this.id = this.route.snapshot['_routerState'].url.split('/')[2];
     if (localStorage.getItem('accessLevel') == 'admin') {
       this.accessLevel = true;
@@ -22,6 +23,7 @@ export class BuyComponent implements OnInit {
       this.accessLevel = false;
     }
     this.msg = '';
+    
   }
 
   ngOnInit(): void {
@@ -37,7 +39,19 @@ export class BuyComponent implements OnInit {
   buy() {
     let felhasznalo = localStorage.getItem('user');
     let time = new Date().toUTCString()
-    // TODO
+    console.log(felhasznalo)
+    console.log(this.item.cim)
+    console.log(time)
+    this.orderService.order(felhasznalo || '', this.item.cim, time).subscribe(msg => {
+      console.log(msg);
+    }, error => {
+      console.log(error);
+      if (error.error == "mar van ilyen") {
+        this.msg = 'A felhasználónév már foglalt!';
+      } else {
+        this.msg= 'Valamilyen adatbázis hiba történt!'
+      }
+    })
     this.msg = "Sikeres vásárlás!"
   }
 

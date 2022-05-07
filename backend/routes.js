@@ -4,6 +4,7 @@ const uuid = require('uuid');
 
 const userModel = mongoose.model('user')
 const jatekModel = mongoose.model('jatek')
+const rendelesekModel = mongoose.model('rendeles')
 
 const passport = require('passport')
 
@@ -133,6 +134,38 @@ router.route('/users/:id?').get((req, res) => {
         })
     } else {
         return res.status(403).send('Tilos minden felhasználót törölni egyszerre!')
+    }
+})
+
+router.route('/rendelesek/:felhasznalo?').get((req, res) => {
+    if (!req.params.felhasznalo) {
+        rendelesekModel.find((err, rendelesek) => {
+            if (err) return res.status(500).send('DB hiba ' + err)
+            if (!rendelesek) return res.status(400).send('Nincsenek rendelések!')
+            return res.status(200).send(rendelesek)
+        })
+    } else {
+        rendelesekModel.find({ felhasznalo: req.params.felhasznalo }, (err, rendelesek) => {
+            if (err) return res.status(500).send('DB hiba ' + err)
+            if (!rendelesek) return res.status(400).send('Nincsenek rendelések!')
+            return res.status(200).send(rendelesek)
+        })
+    }
+}).post((req, res) => {
+    if (!req.body.felhasznalo || !req.body.jatek || !req.body.idopont) {
+        return res.status(400).send("Hiányos input!")
+    } else {
+        // a teljesség kedvéért itt megírom ezt a kódot
+        // de felesleges mert a sémában már definiáltuk, hogy két doksi
+        // nem kaphatja ugyanazt a nevet
+        const nRendeles = new rendelesekModel({
+            felhasznalo: req.body.felhasznalo, jatek: req.body.jatek,
+            idopont: req.body.idopont
+        })
+        nRendeles.save((error) => {
+            if (error) return res.status(500).send('DB hiba a betöltés során ' + error)
+            return res.status(200).send(req.body)
+        })
     }
 })
 
