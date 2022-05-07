@@ -14,6 +14,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import { InfoComponent } from './info/info.component';
+import { BuyComponent } from './buy/buy.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { InfoComponent } from './info/info.component';
     ErrorComponent,
     ProductsComponent,
     RegistrationComponent,
-    InfoComponent
+    InfoComponent,
+    BuyComponent
   ],
   imports: [
     BrowserModule,

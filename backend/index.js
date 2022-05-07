@@ -19,6 +19,7 @@ mongoose.connection.on('error', (err) => { console.log('db error', err) })
 
 mongoose.model('user', require('./models/user.schema'))
 mongoose.model('jatek', require('./models/jatekok.schema'))
+mongoose.model('rendeles', require('./models/rendelesek.schema'))
 
 app.use(express.json())
 app.use(express.urlencoded({

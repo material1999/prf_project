@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit {
 
   buy(id: String) {
     console.log('buy:', id);
-
+    this.router.navigate(['/buy/' + id]);
   }
 
   info(id: String) {
