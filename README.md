@@ -43,6 +43,8 @@ Két újabb komponenst hoztam létre, melyekkel a lista elemeiről további info
 
 A korábbi rendelések kilistázása esetén admin felhasználó minden, az oldalon leadott rendelést lát, a sima felhasználók csak a sajátjaikat. Ezen kívül egy admin fület is készítettem, ezt természetesen az egyszerű felhasználók nem látják. Itt pedig az összes regisztrált felhasználóról érhetjük el a regisztrációkor megadott adatokat (a jelszavakat természetesen hash-elve).
 
+<br/>
+
 <div style="page-break-after: always;"></div>
 
 #### *2022.05.08.*
@@ -70,6 +72,8 @@ https://github.com/material1999/prf_project/
 Az alkalmazás az alábbi linken érhető el:
 
 https://prf-project-deploy.herokuapp.com/
+
+<br/>
 
 <div style="page-break-after: always;"></div>
 
