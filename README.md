@@ -25,7 +25,7 @@ Az Angular-os frontend beüzemelése közbenn problémákba ütköztem. A külö
 
 <br/>
 
-#### *2022.05.05.*
+#### *2022.05.06.*
 Pénteken az első dolgom a backend és a frontend összekapcsolása volt. Ekkor még a saját gépemen futtattam mindkettőt, így a CORS nem okozott problémát a tesztelésnél. Először kézileg vettem fel Postman-nel felhasználókat az adatbázisba, és a bejelentkezést igyekeztem tesztelni, közben folyamatosan olvasva a böngészőm fejlesztői konzolját. Miután megbizonyosodtam róla, hogy a kapcsolat létrejött az adatbázis, az ezt meghajtó szerver, és a felhasználói felület között, nekiláthattam a különféle alapvető funkciók megvalósítsának.
 
 Egy egyszerű felhasználói felületre beviteli mezőket helyeztem el, és navigálást valósítottam meg a be- és kijelentkezés kezeléséhez, felhasználva az órái programkódokat. Ezek után a session kezelés és az AuthGuard bekötése következett, hogy csakis bejelentkezett felhasználók érhessék el a későbbiekben majd játékokat kilistázó oldalt. Ellenkező esetben a bejelentkezési oldalra navigáltatom őket vissza. Elkészítettem egy 404 Error oldalt is, ami olyan URL-ek esetén triggerelődik, melyek nem is léteznek.
@@ -34,7 +34,7 @@ Végül a regisztrációt is hassonló módon készítettem el. Itt figyeltem a 
 
 <br/>
 
-#### *2022.05.06.*
+#### *2022.05.07.*
 Ezen a napon következhetett a további funkciók elkészítése. Előtte azonban kisebb hibajavításokat végeztem, valamint egy egyszerű oldalsó navigációs menüsort is elkészítettem a különböző komponensek közötti navigáláshoz. Ezen kívül egy accessLevel változót is felvettem a localStorage-ba, ezzel figyelve azt, hogy a bejelentkezett felhasználó admin, vagy pedig sima felhasználó.
 
 Első körben az adatbázisban eltárolt elemeket sikerült kilistáznom a bejelentkezés után betöltődő komponensben. Ebbe rekordonként beletartoznak különböző egyszerű szöveges és számszerű adatok, valamint egy base64-ként eltárolt kép is.
@@ -45,7 +45,7 @@ A korábbi rendelések kilistázása esetén admin felhasználó minden, az olda
 
 <br/>
 
-#### *2022.05.07.*
+#### *2022.05.08.*
 A munkám utolsó napjára maradt az alkalmazás Heroku-ra való deploy-olása. A projekt készítése során ezzel gyűlt meg leginkább a bajom. Egy rövid internetes böngészés után a Heroku-s build-ek egyből működtek, a webszerver elindult, de a frontend nem akart betöltődni.
 
 Végül a következőképpen sikerült megoldanom a problémát:
