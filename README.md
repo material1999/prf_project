@@ -43,7 +43,7 @@ Két újabb komponenst hoztam létre, melyekkel a lista elemeiről további info
 
 A korábbi rendelések kilistázása esetén admin felhasználó minden, az oldalon leadott rendelést lát, a sima felhasználók csak a sajátjaikat. Ezen kívül egy admin fület is készítettem, ezt természetesen az egyszerű felhasználók nem látják. Itt pedig az összes regisztrált felhasználóról érhetjük el a regisztrációkor megadott adatokat (a jelszavakat természetesen hash-elve).
 
-<br/>
+<div style="page-break-after: always;"></div>
 
 #### *2022.05.08.*
 A munkám utolsó napjára maradt az alkalmazás Heroku-ra való deploy-olása. A projekt készítése során ezzel gyűlt meg leginkább a bajom. Egy rövid internetes böngészés után a Heroku-s build-ek egyből működtek, a webszerver elindult, de a frontend nem akart betöltődni.
@@ -55,6 +55,12 @@ Végül a következőképpen sikerült megoldanom a problémát:
 - az *package.json*-ben indítószkriptnek az *index.js*-t állítottam be
 - az *index.js*-ben kisebb módosításokat végeztem, átírtam a portokat, és megoldottam az *index.html*-re való átirányítást is
 
+<br/>
+
+## Elérhetőségek
+
+<br/>
+
 Ezzel el is készült az alkalmazásom, ami a lent felsorolt formákban tekinthető meg.
 
 Az alkalmazás localhost-on futtatható verziója az alábbi privát GitHub repository-ban érhető el (Collaborator-nak fel van véve a ZooLeeCoding nevű felhasználó):
@@ -65,7 +71,7 @@ Az alkalmazás az alábbi linken érhető el:
 
 https://prf-project-deploy.herokuapp.com/
 
-<br/>
+<div style="page-break-after: always;"></div>
 
 ## Képernyőképek
 
