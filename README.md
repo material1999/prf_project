@@ -57,4 +57,12 @@ A munkám utolsó napjára maradt az alkalmazás Heroku-ra való deploy-olása.
 
 <br>
 
-## Deploy
+## Elérhetőség
+
+Az alkalmazás localhost-on futtatható verziója az alábbi privát GitHub repository-ban érhető el (Collaborator-nak fel van véve a ZooLeeCoding nevű felhasználó, mint megtekintő):
+
+https://github.com/material1999/prf_project/
+
+Az alkalmazás az alábbi linken érhető el:
+
+https://prf-project-deploy.herokuapp.com/
